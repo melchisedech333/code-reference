@@ -5,6 +5,7 @@
 
 <b>Table of contents</b>
 - Identity
+- Help
 - References
 
 <br>
@@ -17,6 +18,21 @@
 ```bash
 git config --global user.name "Example"
 git config --global user.email example@exemplo.br
+```
+
+<br>
+
+***
+
+## Help
+
+```bash
+git help <verb>
+```
+
+Example:
+```bash
+git help config
 ```
 
 <br>
