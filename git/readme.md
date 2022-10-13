@@ -5,7 +5,7 @@ Language: <a href="readme-pt.md">PT-BR</a>
 
 <br>
 
-<b>Sumário</b>
+<b>Table of contents</b>
 - Identity
 - Credentials
 - Help
