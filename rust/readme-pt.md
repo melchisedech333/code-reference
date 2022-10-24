@@ -24,6 +24,15 @@ fn main() {
 
 <br>
 
+Para compilar e executar.
+
+```bash
+rustc hello_world.rs
+./hello_world
+```
+
+<br>
+
 ***
 
 ## Cargo
@@ -34,14 +43,14 @@ Ao utilizar o comando abaixo, será criado a estrutura básica de um projeto, e 
 
 <b>Obs:</b> se o cargo for utilizado dentro de um diretório git já previamente inicializado, o novo diretório criado não será inicializado com git.
 
-```rust
+```bash
 cargo new hello_world
 ```
 
 <br>
 Para gerar a estrutura do projeto, sem gerar os arquivos git.
 
-```rust
+```bash
 cargo new hello_world --vcs=none
 ```
 
@@ -49,12 +58,22 @@ cargo new hello_world --vcs=none
 
 Diretórios e arquivos criados:
 
+```bash
+hello_world/         # Diretório raiz.
+    Cargo.toml       # Arquivo de configuração.
+    src/main.rs      # Arquivo Rust.
+    .gitignore       # Git files.
+    .git             # Git files.
 ```
-hello_world/         - Diretório raiz.
-    Cargo.toml       - Arquivo de configuração.
-    src/main.rs      - Arquivo Rust.
-    .gitignore       - Git files.
-    .git             - Git files.
+
+<br>
+
+Para compilar e executar.
+
+```bash
+cd hello_world
+cargo build
+./target/debug/hello_world
 ```
 
 
