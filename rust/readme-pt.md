@@ -9,10 +9,11 @@
 - Hello World
 - Cargo
 - Arquivos de cabeçalho
-- Concatenação
+- Formatação de strings
+- Variáveis
+- Outros exemplos
 
 Faltantes:
-- Variáveis
 - Loop
 - Funções
 - Comparação números e strings
@@ -126,23 +127,7 @@ use std:io;
 
 ***
 
-## Variáveis
-
-<br>
-
-Toda variável em Rust é imutável:
-
-```rust
-
-```
-
-<br>
-
-<br>
-
-***
-
-## Concatenação
+## Formatação de strings
 
 <br>
 
@@ -160,8 +145,23 @@ println!("2, a = {}, b = {}", a, b);
 
 ***
 
-## Exemplos
+## Variáveis
 
+<br>
+
+Toda variável em Rust é imutável:
+
+```rust
+
+```
+
+<br>
+
+***
+
+## Outros exemplos
+
+<br>
 
 Jogo de advinhação.
 
