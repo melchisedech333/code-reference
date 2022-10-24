@@ -139,8 +139,6 @@ println!("2, a = {}, b = {}", a, b);
 
 <br>
 
-Toda variável em Rust é imutável:
-
 ```rust
 
 ```
