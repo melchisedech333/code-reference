@@ -68,12 +68,24 @@ hello_world/         # Diretório raiz.
 
 <br>
 
-Para compilar e executar.
+Para compilar e executar:
 
 ```bash
 cd hello_world
 cargo build
 ./target/debug/hello_world
+```
+
+Para fazer isso automático:
+
+```bash
+cargo run
+```
+
+Para realizar uma verificação prévia, para garantir que todo o código está correto para ser compilado:
+
+```bash
+cargo check
 ```
 
 
