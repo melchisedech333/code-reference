@@ -20,9 +20,7 @@ Faltantes:
 
 <br>
 
-***
-
-## Hello World
+# Hello World
 
 
 ```rust
@@ -42,9 +40,7 @@ rustc hello_world.rs
 
 <br>
 
-***
-
-## Cargo
+# Cargo
 
 <br>
 
@@ -113,9 +109,7 @@ cargo doc --open
 
 <br>
 
-***
-
-## Arquivos de cabeçalho
+# Arquivos de cabeçalho
 
 <br>
 
@@ -125,9 +119,7 @@ use std:io;
 
 <br>
 
-***
-
-## Formatação de strings
+# Formatação de strings
 
 <br>
 
@@ -143,9 +135,7 @@ println!("2, a = {}, b = {}", a, b);
 
 <br>
 
-***
-
-## Variáveis
+# Variáveis
 
 <br>
 
@@ -157,9 +147,7 @@ Toda variável em Rust é imutável:
 
 <br>
 
-***
-
-## Outros exemplos
+# Outros exemplos
 
 <br>
 
