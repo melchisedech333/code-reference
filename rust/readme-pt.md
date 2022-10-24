@@ -9,8 +9,13 @@
 - Hello World
 - Cargo
 - Arquivos de cabeçalho
-- Variáveis
 - Concatenação
+
+Faltantes:
+- Variáveis
+- Loop
+- Funções
+- Comparação números e strings
 
 <br>
 
@@ -93,6 +98,20 @@ cargo check
 
 <br>
 
+<b>Dependências:</b> ao inserir uma dependência no arquivo <i>Cargo.toml</i>, basta digitar <i>cargo build</i>, pois elas serão baixadas e instaladas.
+
+Os pacotes do Rust, criados pela comunidade ficam aqui: https://crates.io/
+
+<br>
+
+Para abrir a documentação de dependẽncias basta digitar o comando abaixo. Ele abrirá a documentação localmente no Browser, basta selecionar a de interesse.
+
+```bash
+cargo doc --open
+```
+
+<br>
+
 ***
 
 ## Arquivos de cabeçalho
@@ -114,34 +133,10 @@ use std:io;
 Toda variável em Rust é imutável:
 
 ```rust
-let test = "";
+
 ```
 
 <br>
-
-Exemplo utilizando variáveis.
-
-```rust
-// Importa módulos.
-use std::io;
-
-fn main() {
-    println!("Enter: ");
-
-    // Define uma variável mutável.
-    let mut guess = String::new();
-
-    io::stdin()
-
-        /* Passa como parâmetro a variável.
-         * Onde & é uma referência à mesma.
-         * E "mut" explicita que ela é mutável. */
-        .read_line(&mut guess)
-        .expect("Failed to read line.");
-
-    println!("You guessed: {guess}");
-}
-```
 
 <br>
 
@@ -159,6 +154,76 @@ let b = 10;
 
 println!("1, a = {a}, b = {b}");
 println!("2, a = {}, b = {}", a, b);
+```
+
+<br>
+
+***
+
+## Exemplos
+
+
+Jogo de advinhação.
+
+```rust
+/*
+** IHS s2
+*/
+
+// Importa módulos.
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    // Gera um número aleatório de 1 a 100.
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    loop {
+        println!("Enter input.");
+
+        // Define uma variável mutável.
+        let mut guess = String::new();
+        
+        // Realiza leitura da entrada padrão (terminal).
+        io::stdin()
+
+            /* Passa como parâmetro a variável.
+            * Onde & é uma referência à mesma.
+            * E "mut" explicita que ela é mutável. */
+            .read_line(&mut guess)
+            .expect("Failed to read line.");
+
+        // Converte a string para número inteiro.
+        // Obs: foi realizado um "shadow" na variável, podendo reutilizar
+        // o mesmo nome de uma variável já anteriormente declarada.
+        //
+        // Forma utilizando expect.
+        // let guess :u32 = guess.trim().parse().expect("Please type a number.");
+        //
+        // Forma utilizando match, para realizar o tratamento da entrada.
+        // Caso obter sucesso, retorna o próprio número.
+        // Caso contrário, executa o continue no loop do escopo em questão.
+        let guess :u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        println!("You guessed: {guess}");
+
+        // Compara os valores.
+        match guess.cmp(&secret_number) {
+            Ordering::Less    => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+
+            // Caso o número for igual, finaliza o jogo.
+            Ordering::Equal   => {
+                println!("You win!");
+                break;
+            }
+        }
+    }
+}
 ```
 
 
