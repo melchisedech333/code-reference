@@ -270,7 +270,7 @@ println!("The value of y is: {y}");
 
 <br>
 
-Acessando através do índice. Isto é feito utilizando um <i>ponto<i>.
+Acessando através do índice. Isto é feito utilizando um <i>ponto</i>.
 
 ```rust
 let x: (i32, f64, u8) = (500, 6.4, 1);
