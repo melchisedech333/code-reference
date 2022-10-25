@@ -10,8 +10,9 @@
 - Cargo
 - Arquivos de cabeçalho
 - Formatação de strings
-- Variáveis
+- Variáveis e Constantes
 - Outros exemplos
+- Links e Referências
 
 Faltantes:
 - Loop
@@ -135,13 +136,187 @@ println!("2, a = {}, b = {}", a, b);
 
 <br>
 
-## Variáveis
+## Variáveis e Constantes
 
 <br>
 
-```rust
+Por padrão as variáveis em Rust são todas imutáveis.
 
+E você pode torná-las mutáveis, bastando adicionar <b>mut</b> na declaração.
+
+<b>Obs: </b> se utiliza o comando <b>let</b> para declarar uma variável.
+
+```rust
+let var1 = 10;          // Variável imutável.
+let mut var2 = 20;      // Variável mutável.
 ```
+
+Exemplo de declaração de constantes:
+
+```rust
+//    name                    data type   value
+const THREE_HOURS_IN_SECONDS: u32       = 60 * 60 * 3;
+```
+
+<br>
+
+<b>Sombreamento de variáveis:</b>
+
+```rust
+fn main() {
+
+    // Observe que trata-se de uma variável imutável.
+    let x = 5;
+
+    // É definida uma nova variável, utilizando o valor da antiga.
+    // Essa nova variável possui o mesmo nome da antiga.
+    // Neste momento o valor de 'x' será 6.
+    let x = x + 1;
+
+    {
+        // Aqui repetimos o processo, utilizamos o valor da antiga
+        // e realizamos o sombreamento. Esta variável só existe
+        // dentro de seu próprio escopo de código.
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    // Ao sair do escopo de código, o sombreamento criado no bloco de
+    // código acima é destruído. Fazendo com que a variável volte a 
+    // ter o valor 6.
+    println!("The value of x is: {x}");
+}
+```
+
+Saída:
+```
+The value of x in the inner scope is: 12
+The value of x is: 6
+```
+
+<br>
+
+Os pontos positivos de utilizar sombreamento é que você está re-declarando uma variável, e devido a isto você pode alterar até seu tipo, veja o exemplo abaixo.
+
+```rust
+// Define uma variável do tipo string.
+let spaces = "   ";
+
+// Utilizando o sombreamento, define outra variável, mas
+// desta vez atribuindo a mesma um dado do tipo numérico.
+let spaces = spaces.len();
+```
+
+<br>
+
+<b>Declaração de números inteiros:</b>
+
+Você pode usar underline nos números inteiros.
+
+```rust
+// Exemplo de número inteiro.
+let num1 = 1_333;
+let num2 = 1333;
+
+println!("Num1: {num1} - Num2: {num2}"); // Imprime 1333
+
+// Exemplo de número de ponto flutuante.
+let num3 = 1.333;
+
+println!("Num3: {num3}"); // Imprime 1.333
+```
+
+<br>
+
+<b>Caracteres:</b>
+
+É aceitado UNICODE.
+
+```rust
+let c = 'z';
+let z: char = 'ℤ'; // tipo explícito.
+let heart_eyed_cat = '😻';
+
+println!("Cat: {heart_eyed_cat}"); 
+```
+
+<br>
+
+<b>Tuplas:</b>
+
+Uma tupla armazena um grupo de valores de vários tipos, e elas não podem aumentar nem diminuir de tamanho.
+
+```rust
+//        tipos            valores
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+```
+
+Os modos de acessarmos os elementos de uma tupla são os descritos abaixo.
+
+<Br>
+
+Utilizando correspondência de padrões, conhecido como <b>desestruturação</b>:
+
+```rust
+// Note que os tipos da tupla foram inferidos.
+let tup = (500, 6.4, 1);
+
+// Desestruturação aqui.
+let (x, y, z) = tup;
+
+// Acessando elemento 'y'.
+println!("The value of y is: {y}");
+```
+
+<br>
+
+Acessando através do índice. Isto é feito utilizando um <i>ponto<i>.
+
+```rust
+let x: (i32, f64, u8) = (500, 6.4, 1);
+
+println!("1: {}, 2: {}, 3: {}", x.0, x.1, x.2);
+```
+
+<br>
+
+<b>Array:</b>
+
+Um array é semelhante a uma tupla, com a diferença que aceita apenas um único tipo de dado para seus elementos.
+
+```rust
+// Numérico.
+let a = [1, 2, 3, 4, 5];
+
+// Strings.
+let months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+
+// O acesso ocorre como geralmente o é em outras linguagens.
+println!("ar1: {}, ar2: {}", a[2], months[8]);
+```
+
+<br>
+
+Exemplo de declaração com especificação de tipo e número de elementos:
+
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+
+<br>
+
+Você também pode utilizar expressão semelhante a de cima, para inicializar um array com valores para você.
+
+```rust
+// Ambas expressões são equivalentes.
+let a = [3; 5]; // Valor; Número de elementos.
+let a = [3, 3, 3, 3, 3];
+```
+
+<br>
+
+
 
 <br>
 
@@ -211,5 +386,13 @@ fn main() {
     }
 }
 ```
+
+<br>
+
+## Links e Referências
+
+<br>
+
+https://doc.rust-lang.org/stable/book/
 
 
