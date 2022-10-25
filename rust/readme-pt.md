@@ -11,13 +11,9 @@
 - Arquivos de cabeçalho
 - Formatação de strings
 - Variáveis e Constantes
+- Funções
 - Outros exemplos
 - Links e Referências
-
-Faltantes:
-- Loop
-- Funções
-- Comparação números e strings
 
 <br>
 
@@ -316,7 +312,98 @@ let a = [3, 3, 3, 3, 3];
 
 <br>
 
+## Funções
 
+<br>
+
+<b>Uso básico:</b>
+
+```rust
+fn main() {
+    println!("Hello, world!");
+    another_function();
+}
+
+fn another_function() {
+    println!("Another function.");
+}
+```
+
+<br>
+
+<b>Parâmetros:</b>
+
+```rust
+fn main() {
+    another_function(5);
+    print_labeled_measurement(5, 'h');
+}
+
+// Único parâmetro.
+//                  nome:  tipo
+fn another_function(value: i32) {
+    println!("Value: {value}");
+}
+
+// Múltiplos parâmetros.
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {value}{unit_label}");
+}
+```
+
+<br>
+
+<b>Expressões e instruções:</b>
+
+As expressões retornam valor, as instruções não.
+
+As instruções terminam com ponto-e-vírgula.
+
+```rust
+fn main() {
+
+    // Este bloco de código é uma expressão e retorna o valor 4.
+    let y = {
+        let x = 3;
+        x + 1           /* Obs: não vai ponto-e-vírgula aqui. */
+    };
+
+    // Imprime 4.
+    println!("The value of y is: {y}");
+}
+```
+
+<br>
+
+<b>Retorno de dados:</b>
+
+O tipo de dado no final do bloco de código de uma função, é o que será retornado para quem chamou a função.
+
+```rust
+// name      tipo retornado
+//  |         |
+fn func() -> i32 {
+    333 /* Obs: não vai ponto-e-vírgula aqui. */
+}
+
+// Outro exemplo.
+fn main() {
+    let x = plus_one(5);
+    println!("The value of x is: {x}"); // Imprime 6
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+É possível utilizar o comando <b>return</b> para retornar dados no meio de uma função.
+
+```rust
+fn func() -> i32 {
+    return 111;
+}
+```
 
 <br>
 
