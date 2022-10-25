@@ -12,6 +12,7 @@
 - Formatação de strings
 - Variáveis e Constantes
 - Funções
+- Loops
 - Condicionais
 - Outros exemplos
 - Links e Referências
@@ -412,9 +413,59 @@ fn func() -> i32 {
 
 <br>
 
-```rust
+<b>Forma básica:</b>
 
+```rust
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
 ```
+
+<br>
+
+<b>Utilizando <i>if</i> com <i>let</i>:</b>
+
+Obs: isto é possível por que <i>if</i> é uma expressão, e não uma instrução (que terminaria com ponto-e-vírgula).
+
+Só é permitido utilizar o <i>if</i> com <i>let</i> quando o valor de retorno é sempre do mesmo tipo, com tipos diferentes daria erro.
+
+```rust
+// Uso correto.
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+
+```rust
+// Uso errado.
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { "six" }; // Tipos diferentes (ERRADO).
+
+    println!("The value of number is: {number}");
+}
+```
+
+<br>
+
+## Loops
+
+<br>
+
+
 
 <br>
 
