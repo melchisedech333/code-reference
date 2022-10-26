@@ -15,6 +15,7 @@ Language: <a href="readme.md">EN-US</a>
 - Loops
 - Condicionais
 - Exemplo de código
+- Ownership (propriedade)
 - Links e Referências
 
 <br>
@@ -745,6 +746,45 @@ fn takes_ownership(some_string: String) {
     println!("{} world!", some_string);
 } // Como agora 's' foi movida para cá, após terminar este 
   // escopo, a memória será liberada.
+```
+
+<br>
+
+<b>Transferindo a propriedade:</b>
+
+Quando a função retorna algo, você pode utilizar isso para transferir a propriedade.
+
+```rust
+fn main() {
+
+    // Armazena em s1, a string criada dentro da função gives_ownership().
+    let s1 = gives_ownership();
+    let s2 = String::from("hello");
+    
+    // Move s2 para dentro da função.
+    let s3 = takes_and_gives_back(s2);
+    
+    println!("s1: {s1}");
+
+    // Esta linha produz um erro.
+    // Pois s2 foi movida para dentro da função takes_and_gives_back().
+    // println!("s2: {s2}");
+
+    println!("s3: {s3}");
+
+} // A memória de s1 e s3 são liberadas. Já com s2 não é feito nada, pois ele
+  // foi movido. 
+
+fn gives_ownership() -> String {
+    let some_string = String::from("yours");
+
+    // Retorna a string que foi criada.
+    some_string
+}
+
+fn takes_and_gives_back(a_string: String) -> String {
+    a_string  // move a string para quem chamou a função.
+}
 ```
 
 <br>
