@@ -16,6 +16,7 @@ Language: <a href="readme.md">EN-US</a>
 - Condicionais
 - Exemplo de código
 - Ownership (propriedade)
+- References & Borrowing (referências e empréstimos)
 - Links e Referências
 
 <br>
@@ -789,7 +790,9 @@ fn takes_and_gives_back(a_string: String) -> String {
 
 <br>
 
-<b>References & Borrowing</b>
+## References & Borrowing (referências e empréstimos)
+
+<br>
 
 Para evitar ficar passando a propriedade de uma variável pra lá e pra cá, podemos utilizar referências.
 
