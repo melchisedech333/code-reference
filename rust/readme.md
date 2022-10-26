@@ -17,6 +17,7 @@
 - Exemplo de código
 - Ownership (propriedade)
 - References & Borrowing (referências e empréstimos)
+- Slice
 - Links e Referências
 
 <br>
@@ -924,6 +925,149 @@ let r2 = &s; // no problem
 let r3 = &mut s; // BIG PROBLEM
 
 println!("{}, {}, and {}", r1, r2, r3);
+```
+
+<br>
+
+## Slice
+
+<br>
+
+Se tratam de uma referência que você pode criar de uma sequência de elementos de alguma coleção.
+
+Vejamos um exemplo de fatias de strings.
+
+```rust
+fn main() {
+    let s = String::from("hello world");
+
+    let hello = &s[0..5];
+    let world = &s[6..11];
+
+    // Imprime: 'hello' 'world'
+    println!("'{}' '{}'", hello, world);
+}
+```
+
+Algumas noções:
+
+```rust
+let s = String::from("hello");
+
+// Equivalem a mesma coisa.
+let slice = &s[0..2];
+let slice = &s[..2];
+```
+
+```rust
+let s = String::from("hello");
+let len = s.len();
+
+// Equivalem a mesma coisa.
+let slice = &s[3..len];
+let slice = &s[3..];
+```
+
+```rust
+let s = String::from("hello");
+let len = s.len();
+
+// Equivalem a mesma coisa.
+let slice = &s[0..len];
+let slice = &s[..];
+```
+
+<br>
+
+<b>Retornando a primeira palavra:</b>
+
+<b>Obs:</b> o tipo <i>&str</i> é um tipo para uma fatia de string.
+
+```rust
+// O tipo de dado de 's' é do tipo slice, ou seja, uma fatia de string.
+let s = "hello world!";
+```
+
+```rust
+fn main () {
+    let s = String::from("hello world");
+    let n = first_word(&s);
+
+    println!("first: {}", n);
+}
+
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+```
+
+O interessante de usar slice, é que quando você tenta realizar alguma ação indevida com os dados, ocorre que o compilador te avisa do erro. Uma vez que slice é uma referência, você não pode usa-la de qualquer jeito, pois elas estão sempre sujeitas as noções das referências do próprio Rust.
+
+<br>
+
+<b>Exemplos dos usos possíveis de slice de string:</b>
+
+```rust
+fn main() {
+    let my_string = String::from("hello world");
+
+    let word = first_word(&my_string[0..6]);
+    let word = first_word(&my_string[..]);
+
+    // Uma referência desta maneira também funciona.
+    let word = first_word(&my_string);
+
+    let my_string_literal = "hello world";
+
+    let word = first_word(&my_string_literal[0..6]);
+    let word = first_word(&my_string_literal[..]);
+
+    // Também funciona normalmente, pois uma string definida direta é também um slice. 
+    let word = first_word(my_string_literal);
+}
+
+// Passando um slice de string como parâmetro.
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+```
+
+<br>
+
+<b>Outros exemplos de uso do slice:</b>
+
+```rust
+fn main() {
+    let a = [ 1, 2, 3, 4, 5 ];
+    
+    // Produz um slice (fatia) dos dados do array.
+    let s = &a[1..3];
+
+    // Percorre o novo array (slice).
+    // Imprime:
+    //    number: 2
+    //    number: 3
+    
+    for number in s {
+        println!("number: {}", number);
+    }
+}
 ```
 
 <br>
