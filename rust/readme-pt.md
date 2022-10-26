@@ -875,6 +875,8 @@ let r2 = &mut s;
 
 É possível ter referências múltiplas dentro do mesmo escopo, desde que você não faça mais uso das referências imutáveis, após você criar uma nova referência mutável.
 
+Esta funcionalidade do Rust é chamada de <i>Non-Lexical Lifetimes</i>. Esta funcionalidade processa o tempo de vida das variáveis.
+
 ```rust
 let mut s = String::from("hello");
 
