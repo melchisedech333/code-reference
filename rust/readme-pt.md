@@ -1,7 +1,7 @@
 
 # Rust
 
-<!-- Language: <a href="readme.md">EN-US</a> -->
+Language: <a href="readme.md">EN-US</a>
 
 <br>
 
@@ -14,7 +14,7 @@
 - Funções
 - Loops
 - Condicionais
-- Outros exemplos
+- Exemplo de código
 - Links e Referências
 
 <br>
@@ -314,6 +314,23 @@ let a = [3, 3, 3, 3, 3];
 
 <br>
 
+<b>String:</b>
+
+Forma simples e utilizando <b>String::from</b>.
+
+```rust
+let str1 = "str 1";
+let mut str2 = String::from("str 2");
+
+println!("str1: {str1}");
+println!("str2: {str2}");
+
+str2.push_str(" xD"); // append.
+println!("str3: {str2}");
+```
+
+<br>
+
 ## Funções
 
 <br>
@@ -465,11 +482,123 @@ fn main() {
 
 <br>
 
-
+Existe os comandos: <b>loop</b>, <b>while</b> e <b>for</b>.
 
 <br>
 
-## Outros exemplos
+```rust
+// Loop infinito.
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+```
+
+<br>
+
+<b>Utilizando <i>loop</i> com <i>let</i>.</b>
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+
+            // Observe que o comando break termina com ponto-e-vírgula.
+            // Mas na mesma expressão inserimos o valor de retorno para
+            // a nossa 'let'.
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+<br>
+
+<b>Rótulos em loops:</b>
+
+O legal desse recurso é que você pode chamar um <b>break</b> passando como parâmetro o rótulo que você definiu para o loop.
+
+Um rótulo é definido utilizando uma aspa simples no início do mesmo.
+
+```rust
+fn main() {
+    let mut count = 0;
+    
+    // Define um rótulo para este loop.
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+
+            if remaining == 9 {
+                break;
+            }
+
+            if count == 2 {
+                // Da 'break' no loop de acordo com o rótulo.
+                println!("Break counting_up loop.");
+                break 'counting_up;
+            }
+
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+
+    println!("End count = {count}");
+}
+```
+
+<br>
+
+<b>Utilizando while:</b>
+
+```rust
+let mut number = 3;
+
+while number != 0 {
+    println!("{number}!");
+
+    number -= 1;
+}
+```
+
+<br>
+
+<b>Utilizando for:</b>
+
+```rust
+// Acessa cada um dos elementos do array.
+let a = [10, 20, 30, 40, 50];
+
+for element in a {
+    println!("the value is: {element}");
+}
+```
+
+```rust
+// Realiza o mesmo do while acima, fazendo a contagem regressiva:
+//   3!
+//   2!
+//   1!
+for number in (1..4).rev() {
+    println!("{number}!");
+}
+```
+
+<br>
+
+## Exemplo de código
 
 <br>
 
@@ -535,6 +664,14 @@ fn main() {
     }
 }
 ```
+
+<br>
+
+## Ownership (propriedade)
+
+<br>
+
+
 
 <br>
 
