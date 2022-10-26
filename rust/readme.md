@@ -18,6 +18,7 @@
 - Ownership (propriedade)
 - References & Borrowing (referências e empréstimos)
 - Slice
+- Struct
 - Links e Referências
 
 <br>
@@ -1067,6 +1068,130 @@ fn main() {
     for number in s {
         println!("number: {}", number);
     }
+}
+```
+
+<br>
+
+## Struct
+
+<b>Forma básica:</b>
+
+```rust
+// Declarando a struct.
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {
+
+    // Variável imutável.
+    let user1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    println!("email: {}", user1.email);
+
+    // Variável mutável.
+    let mut user2 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    user2.email = String::from("new-mail@mail.com");
+
+    println!("email: {}", user2.email);
+}
+```
+
+<br>
+
+<b>Atalhos Field Init:</b>
+
+```rust
+// Forma comum.
+fn build_user(email: String, username: String) -> User {
+    User {
+        email: email,
+        username: username,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+
+// Utilizando atalhos Field Init.
+fn build_user(email: String, username: String) -> User {
+    User {
+        email,         // Atalho aqui.
+        username,      // Atalho aqui.
+        active: true,
+        sign_in_count: 1,
+    }
+}
+```
+
+<br>
+
+<b>Tuple Structs:</b>
+
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+```
+
+<br>
+
+<b>Imprimindo dados de uma struct (debug):</b>
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("rect1 is {:?}", rect1);
+    println!("rect1 is {:#?}", rect1);
+}
+```
+
+<br>
+Utilizando a macro <b>dbg!</b>
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn main() {
+    let scale = 2;
+    let rect1 = Rectangle {
+        width: dbg!(30 * scale),
+        height: 50,
+    };
+
+    dbg!(&rect1);
 }
 ```
 
