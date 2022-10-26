@@ -789,6 +789,140 @@ fn takes_and_gives_back(a_string: String) -> String {
 
 <br>
 
+<b>References & Borrowing</b>
+
+Para evitar ficar passando a propriedade de uma variável pra lá e pra cá, podemos utilizar referências.
+
+Da mesma maneira que as variáveis, as referências podem ser imutáveis e mutáveis. Uma referência imutável significa que suas informações não podem ser alteradas.
+
+<b>Referência imutável:</b>
+
+```rust
+fn main() {
+
+    // s1 existe no escopo do main.
+    let s1 = String::from("hello");
+
+    // s1 é passada como referência para a função.
+    let len = calculate_length(&s1);
+
+    // s1 existe ainda no escopo do main, pois não foi movida para a função.
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+// A função aceita uma referência (deste tipo definido no protótipo)
+fn calculate_length(s: &String) -> usize {
+
+    // Observe que a realização da leitura dos dados é permitida.
+    println!("Str: {s}");
+
+    // Este código produz um erro, pois não é permitido alterar as informações
+    // da variável. Pois a referência especificada é imutável.
+    // s.push_str(" xD");
+
+    // Observe que ao finalizar o escopo do código, 's' não deixará de existir.
+    // Pois a mesma não foi movida, mas apenas passada uma referência.
+    s.len()
+}
+```
+
+<br>
+
+<b>Referência mutável:</b>
+
+```rust
+fn main() {
+    
+    // Declaramos uma string que pertence ao escopo do main.
+    let mut s1 = String::from("Iesus");
+    println!("s1: {s1}");
+
+    // Passamos uma referência mutável como parâmetro.
+    change_data(&mut s1);
+
+    // Exibe valor alterado da variável.
+    println!("s1: {s1}");
+}
+
+// A função aceita uma referência mutável como parâmetro.
+fn change_data (s: &mut String) {
+
+    // O valor da variável é alterado.
+    s.push_str(" Salvator");
+}
+```
+
+<br>
+
+<b>Referências múltiplas:</b>
+
+É possível criar várias referências que apontam para o mesmo valor, deste que as mesmas existam em escopos apropriados.
+
+```rust
+let mut s = String::from("hello");
+
+{
+    let r1 = &mut s;
+
+} // Ao sair deste escopo, r1 será destruída, logo, não há problemas em
+  // fazer novas referências.
+
+// Exemplo de nova referência.
+let r2 = &mut s;
+```
+
+<br>
+
+É possível ter referências múltiplas dentro do mesmo escopo, desde que você não faça mais uso das referências imutáveis, após você criar uma nova referência mutável.
+
+```rust
+let mut s = String::from("hello");
+
+let r1 = &s; // no problem
+let r2 = &s; // no problem
+
+// Último uso das referências imutáveis.
+println!("{} and {}", r1, r2);
+// variables r1 and r2 will not be used after this point
+
+// Criação de nova referência mutável.
+let r3 = &mut s; // no problem
+println!("{}", r3);
+```
+
+<br>
+
+<b>Coisas não permitidas:</b>
+
+Utilizar várias referências mutáveis seguidas, antes de fazer o uso devido delas.
+
+```rust
+// Este código da ERRO.
+let mut s = String::from("hello");
+
+let r1 = &mut s;
+let r2 = &mut s;
+
+println!("{}, {}", r1, r2);
+```
+
+<br>
+
+Não é permitido ter uma referência mutável, apontando para outras referências imutáveis (que por sua vez apontam para o mesmo valor).
+
+```rust
+// Este código da ERRO.
+let mut s = String::from("hello");
+
+let r1 = &s; // no problem
+let r2 = &s; // no problem
+let r3 = &mut s; // BIG PROBLEM
+
+println!("{}, {}, and {}", r1, r2, r3);
+```
+
+<br>
+
 ## Links e Referências
 
 <br>
