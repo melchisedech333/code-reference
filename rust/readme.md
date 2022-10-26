@@ -1197,6 +1197,156 @@ fn main() {
 
 <br>
 
+<b>Métodos - Forma básica:</b>
+
+```rust
+// Define a struct com alguns tipos de dados.
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// Implementa a struct.
+impl Rectangle {
+
+    // Deve-se passar &self ou &mut self no primeiro parâmetro.
+    // Pois através desta variável é possível acessar os elementos da instância.
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    // Pode-se utilizar métodos com o mesmo nome de atributos (variávels).
+    // Com a única diferença que na chamada deverá utilizar () para diferenciar.
+    fn width (&self) -> u32 {
+        self.width // Note que o acesso ao elemento é feito utilizando ponto.
+    }
+}
+
+fn main() {
+
+    // Cria uma variável, criando assim uma instância da struct.
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        "The area of the rectangle is {} square pixels, width: {}.",
+        rect1.area(), // Acessa um método da struct.
+        rect1.width()
+    );
+}
+```
+
+<br>
+
+<b>Métodos - Passando outras structs como parâmetro:</b>
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    // Note que é aceito inclusive o próprio tipo.
+    // Passamos aqui apenas uma referência, logo, temos acesso apenas de leitura.
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
+
+    // Passando as structs como parâmetro e verificando seus resultados.
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+}
+```
+
+<br>
+
+<b>Métodos - Sem o parâmetro self:</b>
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+
+    // Método que retorna uma nova instância.
+    fn make_new() -> Self {
+        Self {
+            width: 10,
+            height: 10,
+        }
+    }
+
+    // Retorna apenas um número.
+    fn make_num () -> u32 {
+        333
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle::make_new();
+    let mut rect2 = Rectangle::make_new();
+    let num  = Rectangle::make_num();
+
+    // Modificando a instância.
+    rect2.width  = 30;
+    rect2.height = 30;
+
+    println!("Rect 1: {}, {}", rect1.width, rect1.height);
+    println!("Rect 2: {}, {}", rect2.width, rect2.height);
+    println!("Num...: {}", num);
+}
+```
+
+<br>
+
+<b>Métodos - é permitido separar partes em blocos <i>impl</i> separados:</b>
+
+```rust
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+impl Rectangle {
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
+}
+```
+
+<br>
+
+
+
+<br>
+
 ## Links e Referências
 
 <br>
