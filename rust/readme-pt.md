@@ -671,7 +671,81 @@ fn main() {
 
 <br>
 
+<b>copy</b>: vincula o valor 5 a 'x', depois copia o valor de 'x' para 'y'.
 
+```rust
+let x = 5;
+let y = x;
+```
+
+<br>
+
+<b>move: </b>se tratando de <i>dados profundos</i>, Rust copia apenas a referência e não os dados na memória (heap). Ou seja, <b>s1</b> agora é inválido e não poderá mais ser utilizada. Esta situação é denominada <i>move</i>.
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+
+println!("{}, world!", s2);
+```
+
+<br>
+
+<b>clone</b>: para quando você deseja fazer uma cópia dos dados na memória.
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1.clone();
+
+println!("s1 = {}, s2 = {}", s1, s2);
+```
+
+<br>
+
+<b>funções: </b> segue os exemplos comentados.
+
+```rust
+/*
+ * Exemplo de situação utilizando 'copy'.
+ */
+
+fn main() {
+    let x = 5;
+
+    // Como se trata de um número inteiro, o próprio dado
+    // é simplesmente copiado para dentro da função. 
+    makes_copy(x);
+
+    // Como o dado foi copiado, isto continua válido.
+    println!("x value: {x}");
+}
+
+fn makes_copy(some_integer: i32) {
+    println!("copy data: {}", some_integer);
+}
+```
+
+```rust
+/*
+ * Exemplo de situação utilizando 'move'.
+ */
+
+fn main() {
+    let s = String::from("hello");  // s existe dentro do escopo do main
+
+    takes_ownership(s);             // 's' é movida (move) para dentro da função.
+                                    // ... e daqui para baixo ela não existe mais.
+
+    // Esta linha de código produz um erro.
+    // println!("s value: {s}");
+
+} // Após finalizar o main(), como 's' foi movida, nada especial acontece.
+
+fn takes_ownership(some_string: String) {
+    println!("{} world!", some_string);
+} // Como agora 's' foi movida para cá, após terminar este 
+  // escopo, a memória será liberada.
+```
 
 <br>
 
