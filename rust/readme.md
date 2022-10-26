@@ -19,6 +19,8 @@
 - References & Borrowing (referências e empréstimos)
 - Slice
 - Struct
+- Enum
+- Option\<T\>
 - Links e Referências
 
 <br>
@@ -1343,6 +1345,193 @@ impl Rectangle {
 
 <br>
 
+## Enum
+
+<br>
+
+O modo de uso de uma enum é semelhante ao de uma struct, podendo defini-la e utilizar com impl.
+
+```rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+impl Message {
+    fn call(&self) -> u32 {
+        // method body would be defined here
+        333
+    }
+}
+
+fn main() {
+    let m = Message::Write(String::from("hello"));
+    println!("Value: {}", m.call());
+}
+```
+
+<br>
+
+## Option<T>
+
+<br>
+
+Em linhas gerais, a ideia deste recurso é para suprir a noção do uso do tipo de dado nulo.
+
+<b>Utilizando com o comando match:</b>
+
+```rust
+fn main() {
+    let name = String::from("naufil");
+    
+    println!(
+        "Character at index 6: {}",
+
+        // Uso direto na match.
+        match name.chars().nth(6) {
+            Some(c) => c.to_string(),
+            None => "No character at index 6!".to_string(),
+        }
+    )
+}
+```
+
+<br>
+
+<b>Utilizando como retorno em funções:</b>
+
+```rust
+fn main() {
+    let five = Some(5);
+    let six = plus_one(five);
+
+    if six != None {
+        println!("six != None"); // Imprime.
+    } else {
+        println!("six = None");
+    }
+
+    // Passa "None" como parâmetro.
+    let none = plus_one(None);
+
+    if none != None {
+        println!("none != None");
+    } else {
+        println!("none = None"); // Imprime.
+    }
+}
+
+// Função fazendo uso da noção do Option<T>.
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1), // Retorna o valor incrementando em 1.
+    }
+}
+```
+
+<br>
+
+<b>Alguns casos de uso:</b>
+
+```rust
+let a_str: Option<&str> = Some("a str");
+let a_string: Option<String> = Some(String::from("a String"));
+let a_float: Option<f64> = Some(1.1);
+let a_vec: Option<Vec<i32>> = Some(vec![0, 1, 2, 3]);
+
+#[derive(Debug)]
+struct Person {
+    name: String,
+    age: i32,
+}
+
+let marie = Person {
+    name: String::from("Marie"),
+    age: 2,
+};
+
+let a_person: Option<Person> = Some(marie);
+let maybe_someone: Option<Person> = None;
+
+println!(
+    "{:?}\n{:?}\n{:?}\n{:?}\n{:?}\n{:?}",
+    a_str, a_string, a_float, a_vec, a_person, maybe_someone
+);
+```
+
+```rust
+// Caso muito útil para validações.
+let something: Option<&str> = Some("a String"); // Some("a String")
+let nothing: Option<&str> = None;   // None
+
+match something {
+    Some(text) => println!("We go something: {}", text),
+    None => println!("We got nothing."),
+}
+
+match nothing {
+    Some(something_else) => println!("We go something: {}", something_else),
+    None => println!("We got nothing"),
+}
+```
+
+```rust
+// Na passagem de parâmetro para funções.
+fn might_print(option: Option<&str>) {
+    match option {
+        Some(text) => println!("The argument contains the following value: '{}'", text),
+        None => println!("The argument contains None."),
+    }
+}
+
+let something: Option<&str> = Some("some str");
+let nothing: Option<&str> = None;
+
+might_print(something);
+might_print(nothing);
+```
+
+```rust
+// Função retornando um Option<T>.
+fn contains_char(text: &str, target_c: char) -> Option<&str> {
+    if text.chars().any(|ch| ch == target_c) {
+        return Some(text);
+    } else {
+        return None;
+    }
+}
+
+let a = contains_char("Rust in action", 'a');
+let q = contains_char("Rust in action", 'q');
+
+println!("{:?}", a);
+println!("{:?}", q);
+```
+
+```rust
+// Dentro de elementos de struct.
+
+#[derive(Debug)]
+struct Person {
+    name: String,
+    age: Option<i32>,
+}
+
+let marie = Person {
+    name: String::from("Marie"),
+    age: Some(2),
+};
+
+let jan = Person {
+    name: String::from("Jan"),
+    age: None,
+};
+
+println!("{:?}\n{:?}", marie, jan);
+```
 
 
 <br>
@@ -1352,5 +1541,9 @@ impl Rectangle {
 <br>
 
 https://doc.rust-lang.org/stable/book/
+
+https://stackoverflow.com/questions/56504289/why-do-we-use-the-option-enum
+
+http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 
 
