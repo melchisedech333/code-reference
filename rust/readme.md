@@ -1374,7 +1374,7 @@ fn main() {
 
 <br>
 
-## Option<T>
+## Option\<T\>
 
 <br>
 
