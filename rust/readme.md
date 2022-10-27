@@ -115,6 +115,16 @@ cargo doc --open
 
 <br>
 
+<b>Criando uma lib:</b> para isto, digite o comando abaixo.
+
+Consulte o código <i>restaurant</i> para ver um exemplo de uma lib.
+
+```bash
+cargo new restaurant --lib
+```
+
+<br>
+
 ## Arquivos de cabeçalho
 
 <br>
