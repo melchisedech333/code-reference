@@ -22,6 +22,7 @@
 - Enum
 - Option\<T\>
 - Match
+- Biblioteca
 - Links e Referências
 
 <br>
@@ -111,16 +112,6 @@ Para abrir a documentação de dependẽncias basta digitar o comando abaixo. El
 
 ```bash
 cargo doc --open
-```
-
-<br>
-
-<b>Criando uma lib:</b> para isto, digite o comando abaixo.
-
-Consulte o código <i>restaurant</i> para ver um exemplo de uma lib.
-
-```bash
-cargo new restaurant --lib
 ```
 
 <br>
@@ -1636,6 +1627,74 @@ if let Coin::Quarter(state) = coin {
 } else {
     count += 1;
 }
+```
+
+<br>
+
+## Biblioteca
+
+<br>
+
+<b>Utilizando o rustc: </b> 
+
+Veja os códigos em <b>lib1_example</b>, <b>lib2_example</b>, <b>lib3_example</b>.
+
+```rust
+// lib.rs
+
+pub fn public_function() {
+    println!("called public_function()");
+}
+
+pub fn indirect_access() {
+    println!("called indirect_access()");
+    private_function();
+}
+
+fn private_function() {
+    println!("called private_function()");
+}
+```
+
+Compilar:
+
+```bash
+rustc --crate-type=lib --crate-name=_lib1 lib.rs
+```
+
+Arquivos gerados:
+
+```
+lib_lib1.rlib
+```
+
+Utilizando em algum código:
+
+```rust
+// main.rs
+
+fn main() {
+    mylib::public_function();
+
+    // Error! `private_function` is private
+    // mylib::private_function();
+
+    mylib::indirect_access();
+}
+```
+
+Para compilar:
+
+```rust
+rustc main.rs --extern mylib=../lib1/lib_lib1.rlib
+```
+
+<br>
+
+<b>Utilizando o cargo:</b> para isto, digite o comando abaixo.
+
+```bash
+cargo new lib2 --lib
 ```
 
 <br>
