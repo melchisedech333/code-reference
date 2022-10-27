@@ -21,6 +21,7 @@
 - Struct
 - Enum
 - Option\<T\>
+- Match
 - Links e Referências
 
 <br>
@@ -1533,6 +1534,99 @@ let jan = Person {
 println!("{:?}\n{:?}", marie, jan);
 ```
 
+<br>
+
+## Match
+
+Muito útil para condicionais.
+
+```rust
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_cents(coin: Coin) -> u32 {
+
+    // Verifica o condicional e retorna o valor de acordo com a entrada.
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+
+fn main() {
+    // Retorna 5.
+    println!("Coin: {}", value_in_cents(Coin::Nickel));
+}
+```
+
+<br>
+
+<b>Semelhante ao if, else:</b>
+
+```rust
+fn main() {
+    let dice_roll = 9;
+    
+    match dice_roll {
+        3 => println!("number 3"),
+        7 => println!("number 7"),
+        other => println!("other number: {}", other),
+    }
+}
+```
+
+<br>
+
+<b>Exemplo utilizando Option\<T\></b>
+
+```rust
+let config_max = Some(3u8);
+
+match config_max {
+    Some(max) => println!("The maximum is configured to be {}", max),
+    _ => (),
+}
+```
+
+<br>
+
+<b>Utilizando if let:</b>
+
+```rust
+// Funciona como match.
+let config_max = Some(3u8);
+
+if let Some(max) = config_max {
+    println!("The maximum is configured to be {}", max);
+}
+```
+
+<br>
+
+<b>Estes dois códigos equivalem a mesma coisa:</b>
+
+```rust
+// Versão com match.
+let mut count = 0;
+match coin {
+    Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+    _ => count += 1,
+}
+
+// Versão com if let.
+let mut count = 0;
+if let Coin::Quarter(state) = coin {
+    println!("State quarter from {:?}!", state);
+} else {
+    count += 1;
+}
+```
 
 <br>
 
