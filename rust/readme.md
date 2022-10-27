@@ -1637,7 +1637,7 @@ if let Coin::Quarter(state) = coin {
 
 <b>Utilizando o rustc: </b> 
 
-Veja os códigos em <b>lib1_example</b>, <b>lib2_example</b>, <b>lib3_example</b>.
+Veja os códigos em <b>lib1_example</b>, <b>lib2_example</b>, <b>lib3_example</b> e <b>lib4_example</b>, no diretório <b>tests</b>.
 
 ```rust
 // lib.rs
