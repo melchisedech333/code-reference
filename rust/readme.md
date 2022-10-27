@@ -1691,11 +1691,31 @@ rustc main.rs --extern mylib=../lib1/lib_lib1.rlib
 
 <br>
 
-<b>Utilizando o cargo:</b> para isto, digite o comando abaixo.
+<b>Utilizando o cargo para criar bibliotecas (crates):</b>
+
+Veja <b>lib5_example</b>, <b>lib6_example</b>.
+
+<br>
+
+No mesmo diretório, digite:
 
 ```bash
-cargo new lib2 --lib
+cargo new library --lib # Para criar a library.
+cargo new example       # Para criar um código de exemplo que faz uso da library.
 ```
+
+<br>
+
+Edite o arquivo <b>lib.rs</b> da <i>library</i> (este é o código da sua biblioteca). Edite o arquivo <b>main.rs</b> do <i>example</i>, este é o código que faz o uso da sua biblioteca.
+
+Para fazer funcionar, deve-se adicionar o parâmetro abaixo no arquivo <b>Cargo.toml</b> do <b>example</b>.
+
+```toml
+[dependencies]
+library = { path = "../library" }
+```
+
+Onde <b>../library</b> é o diretório do <i>crate</i> (library).
 
 <br>
 
