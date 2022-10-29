@@ -183,7 +183,7 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/funcs.erl">funcs.erl</a> - utilizando funções de nível superior (funções anônimas).
 
-- <a href="tests/list_funcs.erl">list_funcs.erl</a> - funções boas para trabalhar com listas (foreach, map). Elas acessam e manipulam os elementos de uma lista. 
+- <a href="tests/list_funcs.erl">list_funcs.erl</a>, <a href="tests/list_funcs2.erl">list_funcs2.erl</a>- funções boas para trabalhar com listas (foreach, map). Elas acessam e manipulam os elementos de uma lista. Faz uso de função normal como se fosse uma <b>fun</b>.
 
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
