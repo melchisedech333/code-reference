@@ -187,6 +187,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/sort1.erl">sort1.erl</a> - exemplo de uso do <b>sort</b>.
 
+- <a href="tests/mod1.erl">mod1.erl</a>, <a href="tests/mod2.erl">mod2.erl</a> - exemplo de utilização de módulos (equivalentes aos arquivos de cabeçalho).
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
