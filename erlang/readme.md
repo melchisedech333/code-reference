@@ -10,6 +10,7 @@
 - Estrutura de arquivo
 - Programa exemplo (Fatorial)
 - Código comentado
+- Descrição dos códigos
 - Links e Referências
 
 <br>
@@ -119,6 +120,22 @@ fact:fc(4).
 Código comentado com quase todos os recursos da sintaxe do Erlang: https://learnxinyminutes.com/docs/pt-br/erlang-pt/
 
 Para mais códigos com comentários explicativos, veja o diretório <b>tests</b>.
+
+<br>
+
+## Descrição dos códigos
+
+<br>
+
+Segue a descrição dos códigos para consultas.
+
+- <a href="testes/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
+
+- <a href="tests/fact.erl">fact.erl</a> - código de fatorial mostrando noções como a ideia de declarar apenas parte do código da função (utilizando ponto e vírgula). Também mostra noções como exportar funções.
+
+- <a href="mult.erl">mult.erl</a> - código mostrando como exportar funções com mais de um argumento.
+
+- <a href="fact_mult.erl">fact_mult.erl</a> - código mostrando como declarar várias funções e exportá-las, bem como utilizar mais de um argumento nas funções.
 
 <br>
 
