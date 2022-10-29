@@ -203,4 +203,6 @@ https://www.erlang.org/doc/reference_manual/introduction.html
 
 https://learnxinyminutes.com/docs/pt-br/erlang-pt/
 
+https://www.tutorialspoint.com/erlang/erlang_loops.htm
+
 
