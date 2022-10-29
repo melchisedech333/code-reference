@@ -161,6 +161,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/color.erl">color.erl</a> - exemplo de uso dos maps.
 
+- <a href="tests/iotest.erl">iotest.erl</a> - utilizando a saída padrão.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
