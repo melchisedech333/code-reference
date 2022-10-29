@@ -10,7 +10,6 @@
 - Estrutura de arquivo
 - Programa exemplo (Fatorial)
 - Visualizando detalhes de erro pelo Shell
-- Código comentado
 - Descrição dos códigos
 - Links e Referências
 
@@ -142,23 +141,11 @@ fact:fc(4).
 
 <br>
 
-## Código comentado
-
-<br>
-
-Código comentado com quase todos os recursos da sintaxe do Erlang: https://learnxinyminutes.com/docs/pt-br/erlang-pt/
-
-Para mais códigos com comentários explicativos, veja o diretório <b>tests</b>.
-
-<br>
-
 ## Descrição dos códigos
 
 <br>
 
 Segue a descrição dos códigos para consultas.
-
-- <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 - <a href="tests/fact.erl">fact.erl</a> - código de fatorial mostrando noções como a ideia de declarar apenas parte do código da função (utilizando ponto e vírgula). Também mostra noções como exportar funções.
 
@@ -167,6 +154,10 @@ Segue a descrição dos códigos para consultas.
 - <a href="tests/fact_mult.erl">fact_mult.erl</a> - código mostrando como declarar várias funções e exportá-las, bem como utilizar mais de um argumento nas funções.
 
 - <a href="tests/atoms.erl">atoms.erl</a> - exemplo de utilização de átomos como argumentos em variáveis.
+
+- <a href="tests/tuples.erl">tuples.erl</a> - tuplas nos parâmetros das funções e nos retornos.
+
+- <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
 
@@ -177,5 +168,7 @@ Segue a descrição dos códigos para consultas.
 https://www.erlang.org/doc/getting_started/seq_prog.html
 
 https://www.erlang.org/doc/reference_manual/introduction.html
+
+https://learnxinyminutes.com/docs/pt-br/erlang-pt/
 
 

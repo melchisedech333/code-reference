@@ -11,4 +11,9 @@ convert({centimeter, X}) ->
 convert({inch, X}) ->
     {centimeter, X * 2.54}.
 
+% 18> tuples:convert({centimeter, 10}).
+% {inch,3.937007874015748}
+% 19> tuples:convert({inch, 10}).      
+% {centimeter,25.4}
+
 
