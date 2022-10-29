@@ -167,6 +167,10 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/list_max.erl">list_max.erl</a> - encontra o maior valor de uma lista.
 
+- <a href="tests/list_min.erl">list_min.erl</a> - encontra o menor valor de uma lista.
+
+- <a href="tests/invert.erl">invert.erl</a> - inverte a ordem dos elementos de uma lista.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
