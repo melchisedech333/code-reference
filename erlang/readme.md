@@ -137,6 +137,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/fact_mult.erl">fact_mult.erl</a> - código mostrando como declarar várias funções e exportá-las, bem como utilizar mais de um argumento nas funções.
 
+- <a href="tests/atoms.erl">atoms.erl</a> - exemplo de utilização de átomos como argumentos em variáveis.
+
 <br>
 
 ## Links e Referências
