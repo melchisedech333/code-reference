@@ -205,4 +205,6 @@ https://learnxinyminutes.com/docs/pt-br/erlang-pt/
 
 https://www.tutorialspoint.com/erlang/erlang_loops.htm
 
+https://elixir-lang.org/getting-started/introduction.html
+
 
