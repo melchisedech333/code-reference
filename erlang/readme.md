@@ -173,6 +173,10 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/tempe.erl">tempe.erl</a> - encontra a temperatura mais alta e faz uso dos condicionais.
 
+- <a href="tests/cond1.erl">cond1.erl</a> - demonstra o uso do if.
+
+- <a href="tests/case1.erl">case1.erl</a> - demonstra o uso do case.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
