@@ -9,6 +9,7 @@
 - Instalação e Shell
 - Estrutura de arquivo
 - Programa exemplo (Fatorial)
+- Visualizando detalhes de erro pelo Shell
 - Código comentado
 - Descrição dos códigos
 - Links e Referências
@@ -109,6 +110,34 @@ Se tudo for bem, a resposta será algo assim:
 
 ```bash
 fact:fc(4).
+```
+
+<br>
+
+## Visualizando detalhes de erro pelo Shell
+
+<br>
+
+```bash
+...
+15> atoms:convert(10, test).
+** exception error: no function clause matching 
+                    atoms:convert(10,test) (atoms.erl, line 5)
+16> v(15).                  
+{'EXIT',
+    {function_clause,
+        [{atoms,convert,
+             [10,test],
+             [{file,"atoms.erl"},{line,5}]},
+         {erl_eval,do_apply,6,
+             [{file,"erl_eval.erl"},{line,684}]},
+         {shell,exprs,7,
+             [{file,"shell.erl"},{line,686}]},
+         {shell,eval_exprs,7,
+             [{file,"shell.erl"},{line,642}]},
+         {shell,eval_loop,3,
+             [{file,"shell.erl"},{line,627}]}]}}
+17> 
 ```
 
 <br>
