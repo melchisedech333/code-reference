@@ -7,6 +7,7 @@ list_max([Head|Rest]) ->
     list_max(Rest, Head).
 
 list_max([], Res) ->
+    io:format("4 called -> res: ~w~n", [Res]),
     Res;
 
 %% É verificado se o Head é maior que o Result_so_far.
