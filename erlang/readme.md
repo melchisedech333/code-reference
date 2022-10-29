@@ -177,6 +177,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/case1.erl">case1.erl</a> - demonstra o uso do case.
 
+- <a href="tests/year_prog.erl">year_prog.erl</a> - faz uso de if atribuindo um valor a uma variável, e faz o uso do <b>when</b> dentro do <b>case</b>.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
