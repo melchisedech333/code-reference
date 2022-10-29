@@ -171,6 +171,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/invert.erl">invert.erl</a> - inverte a ordem dos elementos de uma lista.
 
+- <a href="tests/tempe.erl">tempe.erl</a> - encontra a temperatura mais alta e faz uso dos condicionais.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
