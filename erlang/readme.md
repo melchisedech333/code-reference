@@ -179,6 +179,12 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/year_prog.erl">year_prog.erl</a> - faz uso de if atribuindo um valor a uma variável, e faz o uso do <b>when</b> dentro do <b>case</b>.
 
+- <a href="tests/tests.erl">tests.erl</a> - testando o uso de variáveis.
+
+- <a href="tests/funcs.erl">funcs.erl</a> - utilizando funções de nível superior (funções anônimas).
+
+- <a href="tests/list_funcs.erl">list_funcs.erl</a> - funções boas para trabalhar com listas (foreach, map). Elas acessam e manipulam os elementos de uma lista. 
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
