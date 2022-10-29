@@ -163,6 +163,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/iotest.erl">iotest.erl</a> - utilizando a saída padrão.
 
+- <a href="tests/convert_celsius.erl">convert_celsius.erl</a> - converte uma lista de temperaturas para celsius.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
