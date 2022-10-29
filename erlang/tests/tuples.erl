@@ -15,5 +15,7 @@ convert({inch, X}) ->
 % {inch,3.937007874015748}
 % 19> tuples:convert({inch, 10}).      
 % {centimeter,25.4}
+% 20> tuples:convert( tuples:convert({inch, 5}) ).
+% {inch,5.0}
 
 
