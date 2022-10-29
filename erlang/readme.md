@@ -104,7 +104,7 @@ Se tudo for bem, a resposta será algo assim:
 {ok,fact}
 ```
 
-<b>Executar:<b>
+<b>Executar:</b>
 
 ```bash
 fact:fc(4).
@@ -117,6 +117,8 @@ fact:fc(4).
 <br>
 
 Código comentado com quase todos os recursos da sintaxe do Erlang: https://learnxinyminutes.com/docs/pt-br/erlang-pt/
+
+Para mais códigos com comentários explicativos, veja o diretório <b>tests</b>.
 
 <br>
 
