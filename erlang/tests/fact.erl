@@ -7,11 +7,13 @@
 
 %% Define uma função, especificando que para o argumento 1, o 
 %% retorno será sempre 1.
+%% Cada parte da função assim definida, é chamada de cláusula.
 fc(1) -> 
     1; % O ponto e virgula significa que a função possui mais código
        % para ser adicionado a ela.
 
 %% Continua código da função, especificando o que ocorre para outros valores.
+%% Esta é outra cláusula.
 fc(X) ->
     X * fc(X - 1). % Conclui função com o ponto.
 
