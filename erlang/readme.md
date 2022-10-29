@@ -157,6 +157,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/tuples.erl">tuples.erl</a> - tuplas nos parâmetros das funções e nos retornos.
 
+- <a href="tests/list1.erl">list1.erl</a> - processa lista, retornando o tamanho dela.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
