@@ -159,6 +159,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/list1.erl">list1.erl</a> - processa lista, retornando o tamanho dela.
 
+- <a href="tests/color.erl">color.erl</a> - exemplo de uso dos maps.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
