@@ -165,6 +165,8 @@ Segue a descrição dos códigos para consultas.
 
 - <a href="tests/convert_celsius.erl">convert_celsius.erl</a> - converte uma lista de temperaturas para celsius.
 
+- <a href="tests/list_max.erl">list_max.erl</a> - encontra o maior valor de uma lista.
+
 - <a href="tests/learnerlang-pt.erl">learnerlang-pt.erl</a> - código com várias dicas da sintaxe.
 
 <br>
