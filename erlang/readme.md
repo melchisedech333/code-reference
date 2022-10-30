@@ -207,4 +207,9 @@ https://www.tutorialspoint.com/erlang/erlang_loops.htm
 
 https://elixir-lang.org/getting-started/introduction.html
 
+https://programming-idioms.org/cheatsheet/Erlang
+
+https://www.cse.chalmers.se/edu/course/TDA384_LP1/files/lectures/Lecture06-erlang_fp.pdf
+
+
 
