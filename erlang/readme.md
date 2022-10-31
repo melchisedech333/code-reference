@@ -193,6 +193,14 @@ Segue a descrição dos códigos para consultas.
 
 <br>
 
+<b>Para mais códigos de Erlang e Elixir, você pode conferir este repositório abaixo.</b>
+
+Nele eu fiz vários exemplos envolvendo questões básicas de matemática. Isso é interessante também para buscar compreender o funcionamento básico da sintaxe do Erlang e do Elixir.
+
+https://github.com/melchisedech333/elixir-erlang-and-basic-math
+
+<br>
+
 ## Links e Referências
 
 <br>
