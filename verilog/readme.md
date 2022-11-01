@@ -5,7 +5,7 @@
 
 <br>
 
-<b>Consulte os arquivos no diretório: <a href="">exemplo</a>.</b>
+<b>Consulte os arquivos no diretório: <a href="./examples">examples</a>.</b>
 
 <br>
 
