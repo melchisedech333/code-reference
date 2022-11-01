@@ -212,4 +212,7 @@ https://web.stanford.edu/class/ee183/handouts_win2003/VerilogQuickRef.pdf
 
 https://sutherland-hdl.com/pdfs/verilog_2001_ref_guide.pdf
 
+http://www.referencedesigner.com/tutorials/verilog/verilog_14.php
+
+
 
