@@ -180,15 +180,15 @@ Diretório: <b>examples</b>.
 
 <br>
 
-- <b>hello-world</b> - interação com o simulador.
+- <a href="./examples/hello-world">hello-world</a> - interação com o simulador.
 
-- <b>module-1</b>, <b>counter-1</b> - exemplificando a estrutura geral, envolvendo os wires, regs, estruturas gerais do código, comportamentos, código do dispositivo e código de simulação.
+- <a href="./examples/module-1">module-1</a>, <b>counter-1</b> - exemplificando a estrutura geral, envolvendo os wires, regs, estruturas gerais do código, comportamentos, código do dispositivo e código de simulação.
 
-- <b>basic-1</b> - utilização de transistores N-MOS e P-MOS (nível simplificado).
+- <a href="./examples/basic-1">basic-1</a> - utilização de transistores N-MOS e P-MOS (nível simplificado).
 
-- <b>basic-2</b> - utilização do Power Supply e Ground.
+- <a href="./examples/basic-2">basic-2</a> - utilização do Power Supply e Ground.
 
-- <b>basic-3</b> - uso dos transistores NMOS, PMOS, especificando detalhes de suas portas, e construindo com eles uma NOT-GATE (CMOS Inverter).
+- <a href="./examples/basic-3">basic-3</a> - uso dos transistores NMOS, PMOS, especificando detalhes de suas portas, e construindo com eles uma NOT-GATE (CMOS Inverter).
 
 <br>
 
