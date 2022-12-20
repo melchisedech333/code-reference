@@ -94,4 +94,10 @@ dic['color'] = 'blue'
 
 print("Value: {}". format(dic))
 
+# Arrays
+
+ar1 = [ "str1", 10, 20, "str2", 333 ]
+
+print("Value: {}". format(ar1))
+
 
