@@ -7,6 +7,7 @@
 - Dockerfile
 - Multi Container Environments
 - Network
+- Docker compose
 - Reference
 
 <br>
@@ -285,6 +286,50 @@ Check network:
 
 ```bash
 docker network inspect foodtrucks-net
+```
+
+<br>
+
+## Docker compose
+
+File: docker-compose.yml
+```yml
+version: "3"
+
+# Define the services (es, web)
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    container_name: es
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+  web:
+    image: melchisedech333/foodtrucks-web
+    command: python3 app.py
+    depends_on:
+      - es
+    ports:
+      - 5000:5000
+    volumes:
+      - ./flask-app:/opt/flask-app
+volumes:
+    esdata1:
+      driver: local
+```
+
+<br>
+
+Commands:
+
+```bash
+docker-compose up       # start
+docker-compose up -d
+docker-compose ps       # list
+docker-compose down -v  # stop
 ```
 
 <br>
