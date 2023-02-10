@@ -6,6 +6,7 @@
 - Commands
 - Dockerfile
 - Multi Container Environments
+- Network
 - Reference
 
 <br>
@@ -31,8 +32,17 @@ docker run -it IMAGE-REPO-NAME          # run image
 
 docker stop CONTAINER-NAME              # ...
 docker kill CONTAINER-NAME              # ...
+docker container stop NAME
+docker container rm NAME
 
-docker search
+docker search IMAGE-NAME
+docker search elasticsearch
+
+docker container ls                     # List containers
+docker container logs CONTAINER-NAME    # View logs
+
+docker network ls                       # List networks
+docker network inspect bridge           # Show network information
 ```
 
 ```bash
@@ -176,7 +186,106 @@ Repos: https://hub.docker.com/u/melchisedech333
 
 ## Multi Container Environments
 
+```bash
+# Project repo
+git clone https://github.com/prakhar1989/FoodTrucks
+cd FoodTrucks
 
+# Install elasticsearch image
+docker pull docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+# Run elasticsearch
+#   --name = new name
+#   -e "discovery.type... = environment variable, run as a single-node.
+
+# Run normal
+# docker run -d --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+# Run in network
+docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+# Test elasticsearch
+curl 0.0.0.0:9200
+# Output:
+# {
+#   "name" : "EN3bcr6",
+#   "cluster_name" : "docker-cluster",
+#   "cluster_uuid" : "_MjrjI9GSXefvxrSHfcMrg",
+#   "version" : {
+#     "number" : "6.3.2",
+#     "build_flavor" : "default",
+#     "build_type" : "tar",
+#     "build_hash" : "053779d",
+#     "build_date" : "2018-07-20T05:20:23.451332Z",
+#     "build_snapshot" : false,
+#     "lucene_version" : "7.3.1",
+#     "minimum_wire_compatibility_version" : "5.6.0",
+#     "minimum_index_compatibility_version" : "5.0.0"
+#   },
+#   "tagline" : "You Know, for Search"
+# }
+
+# Create docker image.
+docker build -t melchisedech333/foodtrucks-web .
+
+# Test elasticseach connection:
+docker run -it --rm --network foodtrucks-net melchisedech333/foodtrucks-web bash
+
+curl es:9200 # elastic response output...
+
+# Run app...
+docker run -P --rm melchisedech333/foodtrucks-web
+
+# In network
+docker run -d --net foodtrucks-net -p 5000:5000 --name foodtrucks-web melchisedech333/foodtrucks-web
+```
+
+<br>
+Script:
+
+```bash
+#!/bin/bash
+
+# build the flask container
+docker build -t yourusername/foodtrucks-web .
+
+# create the network
+docker network create foodtrucks-net
+
+# start the ES container
+docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+# start the flask app container
+docker run -d --net foodtrucks-net -p 5000:5000 --name foodtrucks-web yourusername/foodtrucks-web
+```
+
+<br>
+
+## Network
+
+List networks:
+```bash
+docket network ls
+```
+
+Create new network:
+```bash
+docker network create NAME
+docker network create foodtrucks-net
+```
+
+... Run a container:
+
+```bash
+# --net foodtrucks-net
+docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+```
+
+Check network:
+
+```bash
+docker network inspect foodtrucks-net
+```
 
 <br>
 
