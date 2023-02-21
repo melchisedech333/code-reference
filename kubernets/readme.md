@@ -13,9 +13,11 @@
 - Comandos gerais:
 
 ```bash
+sudo kubectl get deployment         # retorna deployment
 sudo kubectl get nodes              # retorna nodes
 sudo kubectl get pods               # retorna pods
 sudo kubectl get rs                 # retorna replicaset
+sudo kubectl get svc                # retorna service
 ```
 
 ***
