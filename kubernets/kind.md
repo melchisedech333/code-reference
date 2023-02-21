@@ -11,6 +11,8 @@ sudo kubectl get pods               # retorna pods
 sudo kubectl get rs                 # retorna replicaset
 ```
 
+***
+
 <br>
 
 - Criar cluster:
@@ -19,6 +21,8 @@ sudo kubectl get rs                 # retorna replicaset
 sudo kind create cluster --name=esquenta
 sudo kubectl cluster-info --context kind-esquenta
 ```
+
+***
 
 <br>
 
@@ -49,6 +53,8 @@ Executa pod com container docker:
 sudo kubectl apply -f pod.yaml
 ```
 
+***
+
 <br>
 
 - Port forward:
@@ -59,17 +65,24 @@ Mapeia a porta 80 do container, para a 9000 no host.
 sudo kubectl port-forward pod/nginx 9000:80
 ```
 
+***
+
 <br>
 
-- Deleta pod:
+- Deleta pod, replicaset:
 
 ```bash
 sudo kubectl delete pod nginx
+sudo kubectl delete rs nginx
 ```
+
+***
 
 <br>
 
 - Arquivo de configuração ReplicaSet (arquivo: rs.yaml). A ideia dele é poder gerenciar melhor os pods, como garantir sua persistência, mesmo que ele seja deletado.
+
+Obs: toda vez que muda a imagem do container, é necessário deletar o pod, pois o ReplicaSet não gerencia mudanças. O ReplicaSet gerencia tão somente as réplicas, suas quantidades e semelhantes.
 
 ```yaml
 apiVersion: apps/v1 
@@ -110,6 +123,32 @@ Executa ReplicaSet:
 sudo kubectl apply -f rs.yaml
 ```
 
+***
+
 <br>
+
+- Cria deployment (arquivo: deployment.yaml).
+
+Para utilizar o deployment, basta alterar o nome do recurso no arquivo rs.yaml.
+
+```yaml
+...
+kind: Deployment
+...
+```
+
+Ao executar o comando: sudo kubectl get pods; teremos a saída abaixo.
+
+```
+NAME                       READY STATUS RESTARTS AGE
+nginx-ff67sd3-sd233        1/1   Runing 0        3s
+  ^      ^      ^
+  |      |       \_-> Nome do Pod.
+  |      |
+  |       \_-> Nome do ReplicaSet.
+  |
+  \_-> Nome do Deployment.
+```
+
 
 
