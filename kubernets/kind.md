@@ -150,5 +150,12 @@ nginx-ff67sd3-sd233        1/1   Runing 0        3s
   \_-> Nome do Deployment.
 ```
 
+<br>
+
+Para aplicar o deployment, basta executar o comando abaixo. E toda vez que mudar a imagem do container, e em seguida aplicar o comando, será atualizado os devidos ReplicaSet e Pods.
+
+```bash
+sudo kubectl apply -f deployment.yaml
+```
 
 
