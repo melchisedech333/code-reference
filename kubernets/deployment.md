@@ -75,4 +75,44 @@ Comando docker de instalação da imagem:
 docker pull melchisedech333/goserver
 ```
 
+***
+
+<br>
+
+- Cria arquivo de deployment no Kubernets.
+
+Arquivo: deployment.yaml
+
+```yaml
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+    name: goserver
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: goserver
+
+    template:
+        metadata:
+            labels:
+                app: goserver
+        spec:
+            containers:
+                - name: goserver
+                  image: melchisedech333/goserver # Especifica imagem do Docker Hub
+                  ports:
+                    - containerPort: 9090
+```
+
+<br>
+
+Para realizar o deployment, e o port-forward de teste:
+
+```bash
+sudo kubectl apply -f deployment.yaml
+sudo kubectl port-forward pod/goserver-s8989asd-98asd 9090:9090
+```
+
 
