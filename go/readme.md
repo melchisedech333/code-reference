@@ -1,23 +1,48 @@
 
 # Go
 
-<b>Table of contents</b>
-- General
+### Gerais
+
+```bash
+go env                      # Exibe as variáveis de ambiente.
+```
+
+```bash
+go run main.go              # Executa arquivo go.
+go build main.go            # Compila aplicação.
+```
 
 <br>
 
 ***
 
-## General
-
-Commands:
+### Estrutura de projeto
 
 ```bash
-# run go app
-go run app.go
-go run .
+cd ~/go/src/
+mkdir -p github.com/melchisedech333/hello-go
+cd github.com/melchisedech333/hello-go
 ```
 
 <br>
+
+Escreva o arquivo <b>main.go</b>:
+
+```go
+package main
+
+import "fmt"
+
+func main () {
+	fmt.Println("IHS s2")
+}
+```
+
+<br>
+
+```bash
+go build main.go            # Compila aplicação.
+go install                  # Instala aplicação em ~/go/bin
+```
 
 
