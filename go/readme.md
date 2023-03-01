@@ -1,7 +1,7 @@
 
 # Go
 
-### Gerais
+## Gerais
 
 ```bash
 go env                      # Exibe as variáveis de ambiente.
@@ -16,7 +16,7 @@ go build main.go            # Compila aplicação.
 
 ***
 
-### Estrutura de projeto
+## Estrutura de projeto
 
 ```bash
 cd ~/go/src/
@@ -26,7 +26,7 @@ cd github.com/melchisedech333/hello-go
 
 <br>
 
-Escreva o arquivo <b>main.go</b>:
+Arquivo: <b>main.go</b>
 
 ```go
 package main
@@ -43,6 +43,8 @@ func main () {
 ```bash
 go build main.go            # Compila aplicação.
 go install                  # Instala aplicação em ~/go/bin
+                            # Na instalação é pego sempre o
+                            # nome da pasta, no caso "hello-go".
 ```
 
 
