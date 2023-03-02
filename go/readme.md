@@ -186,7 +186,61 @@ go run main.go
 
 ***
 
+## Go Mod 
 
+<b>Projeto em: go-mod/*</b>
 
+Conceitos:
+- <b>Dependência direta</b>: quando estamos usando exatamente aquele pacote.
+- <b>Dependência indireta</b>: quando precisamos daquele pacote, para fazer outro funcionar.
 
+```bash
+# Inicializa o arquivo de módulos para o projeto em questão
+# E define o módulo que vamos usar.
+go mod init github.com/melchisedech333/uuid
+```
 
+Sempre no final do arquivo <b>go.mod</b> gerado serão adicionadas as dependências instaladas.
+
+```bash
+# Instala uma dependência.
+go install github.com/google/uuid
+
+# Deprecado.
+go get github.com/google/uuid@latest
+```
+
+```go
+// File: main.go
+
+package main
+
+import (
+	"fmt"
+	"github.com/google/uuid"
+)
+
+func main(){
+	uuid := uuid.New()
+	fmt.Printf("UUID: %v\n", uuid)
+}
+```
+
+<br>
+
+## Comandos
+
+```bash
+# Corrige as dependências, adicionando as que estou
+# utilizando no código, e removendo as que não estou usando.
+# Importante rodar ele sempre que for subir alguma aplicação
+# para ambientes.
+go mod tidy
+
+# Mostra uma espécie de gráfico das dependências.
+go mod graph
+
+# Gera uma pasta vendor no projeto em questão, com todas as
+# dependências utilizadas no mesmo.
+go mod vendor
+```
