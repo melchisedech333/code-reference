@@ -244,3 +244,5 @@ go mod graph
 # dependências utilizadas no mesmo.
 go mod vendor
 ```
+
+
