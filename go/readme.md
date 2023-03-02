@@ -138,6 +138,10 @@ func soma(a int, b int) int {
 
 ## Pacotes
 
+Para um exemplo mais elaborado, veja o diretório <b>src/github.com/melchisedech333/pacote</b>.
+
+<br>
+
 Exemplo simples:
 
 ```go
@@ -163,6 +167,8 @@ package utils
 
 import "fmt"
 
+// Funções exportáveis.
+
 func Version() {
     fmt.Println("Utils version 1.0")
 }
@@ -178,7 +184,9 @@ go run main.go
 
 <br>
 
-Para um exemplo mais elaborado, veja o diretório <b>src/github.com/melchisedech333/pacote</b>.
+***
+
+
 
 
 
