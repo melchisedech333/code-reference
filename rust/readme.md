@@ -114,6 +114,12 @@ Para abrir a documentação de dependẽncias basta digitar o comando abaixo. El
 cargo doc --open
 ```
 
+Para gerar a documentação apenas do projeto, e ignorar todas as dependências.
+
+```bash
+cargo doc --no-deps --open
+```
+
 <br>
 
 ## Arquivos de cabeçalho

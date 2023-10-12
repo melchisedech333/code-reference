@@ -23,13 +23,16 @@ fn main() {
     let s1 = String::from("hello");
     let s2 = s1;
 
-    println!("{}, world!", s2);
+    // println!("s1: {}, world!", s1); // Produz erro, pois a referência a 's1' agora 
+                                       // é inválida, pois foi movida para 's2'.
+    println!("s2: {}, world!", s2);
 
     // clone.
     let s1 = String::from("hello");
     let s2 = s1.clone();
 
-    println!("s1 = {}, s2 = {}", s1, s2);
+    println!("s1 = {}, s2 = {}", s1, s2); // Desta vez a referência a 's1' se mantem válida, pois
+                                          // foi feito um clone dos dados de 's1' para 's2'.
 }
 
 
