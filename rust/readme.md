@@ -1735,4 +1735,6 @@ https://stackoverflow.com/questions/56504289/why-do-we-use-the-option-enum
 
 http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 
+[Option and Result](https://dhghomon.github.io/easy_rust/Chapter_31.html)
+
 
