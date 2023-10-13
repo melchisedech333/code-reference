@@ -26,6 +26,7 @@
 - Result\<T\, E\>
 - Propagação de erro
 - Generic Data Types
+- Traits
 - Links e Referências
 
 <br>
@@ -1903,6 +1904,232 @@ fn main() {
     let p3 = p1.mixup(p2);
 
     println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
+}
+```
+
+<br>
+
+## Traits
+
+<br>
+
+Uma Trait lembra muito, e acaba que também funcionando, como uma interface ou abstração.
+
+Neste exemplo abaixo definimos uma Trait chamada `Sumary`, e ela define a assinatura de um método, chamado `summarize()`. Em seguida há implementações para essa Trait, sendo elas: NewsArticle e Tweet.
+
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+```
+
+```rust
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
+}
+```
+
+Utilizando a trait:
+
+```rust
+use aggregator::{Summary, Tweet};
+
+fn main() {
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
+}
+```
+
+Uma Trait, além de servir como interface/abstração, pode suportar métodos padrões.
+
+Exemplo: `examples/trait1`.
+
+```rust
+pub trait Summary {
+    
+    // Define método padrão.
+    fn summarize(&self) -> String {
+        format!("(Read more from {}...)", self.summarize_author()) // Faz chamada a um método
+                                                                   // que não é definido como padrão.
+    }
+
+    // Define um método, mas não como padrão.
+    // Este pode ser re-declarado pelas implementações da Trait.    
+    fn summarize_author(&self) -> String;
+}
+
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+// Define implementação, mas não necessita declarar o método 'summarize'.
+// Ainda assim, quando ele for chamado, o método existirá, pois foi definido
+// como padrão da definição da própria Trait Summary.
+impl Summary for NewsArticle {
+    fn summarize_author(&self) -> String {
+        format!("@{}", self.author)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    
+    // O mesmo para esta implementação, onde apenas o author é modificado/diferente.
+    fn summarize_author(&self) -> String {
+        format!("@{}", self.username)
+    }
+}
+```
+
+<br>
+
+Também é possível passar as Traits como parâmetros para funções, fazendo com que seja aceito como parâmetro qualquer uma das implementações de uma Trait. Ou seja, poderia aceitar como parâmetro `NewsArticle` e `Tweet`, pois ambos implementam a Trait `Summary`. 
+
+Há dois modos de declarar uma Trait como parâmetro em funções.
+
+```rust
+// Modo 1.
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+
+// Modo 2.
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+Há vantagens nos dois modos, quando temos várias Traits passadas como parâmetro, convêm mais o modo 2. E quando temos uma função mais simples, convêm mais o modo 1.
+
+```rust
+// Modo 1.
+pub fn notify(item1: &impl Summary, item2: &impl Summary) { ... }
+
+// Modo 2.
+pub fn notify<T: Summary>(item1: &T, item2: &T) { ... }
+```
+
+<br>
+
+Para aceitar duas implementações Trait de uma vez, podemos utilizar a sintaxe abaixo.
+
+```rust
+pub fn notify(item: &(impl Summary + Display)) { ... }
+
+pub fn notify<T: Summary + Display>(item: &T) { ... }
+```
+
+<br>
+
+Para tornar as coisas mais claras, também podemos utilizar a cláusula `where`.
+
+Em vez de escrever isso:
+
+```rust
+fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 { ... }
+```
+
+Podemos escrever isso:
+
+```rust
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+    ...
+}
+```
+
+<br>
+
+Também é possível utilizar uma Trait no retorno de uma função, como no exemplo abaixo. Deste modo é possível retornar sempre alguma implementação da Trait. Neste exemplo, podendo ser `NewsArticle` ou `Tweet`. O legal é que desta maneira evita-se de declarar o tipo concreto.
+
+**Obs:** não é possível retornar na mesma função `NewsArticle` ou `Tweet`, é aceite que se retorne apenas um ou outro. É regra da linguagem e o compilador não aceita.
+
+```rust
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+```
+
+<br>
+
+É possível declarar implementações `Pair` com tipos diferentes para determinadas funções, como no caso da `cmp_display`.
+
+```rust
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+
+fn main() {
+    let pair = Pair::new(1, 2);
+    pair.cmp_display();
 }
 ```
 
