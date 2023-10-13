@@ -1739,7 +1739,7 @@ Funciona basicamente como um Option<T>, mas lida com tratamento de erros voltado
 
 <br>
 
-Os dois códigos abaixo são equivalentes. Observe que no 2° há um caracter de interrogação `let mut username_file = File::open("hello.txt")?;`
+Os dois códigos abaixo são equivalentes. Observe que no 2° há um sinal de interrogação `let mut username_file = File::open("hello.txt")?;`
 
 Este sinal de interrogação significa que ao realizar a chamada com o `File::open`, se tudo ocorrer bem será retornado o valor dentro de `Ok(v)`. Ou seja, armazenando o valor em `username_file`. E em seguida simplesmente continuando a execução do código da função.
 
@@ -1780,6 +1780,21 @@ fn read_username_from_file() -> Result<String, io::Error> {
     Ok(username)
 }
 
+```
+
+Outra maneira ainda melhor é realizar a chamada do método `read_to_string(v)` diretamente após o sinal de interrogação. Inclusive sem a necessidade de armazenar o valor de `File::open` em alguma variável. Uma vez que `File::open` retornará a própria instância do mesmo, pois utilizamos o sinal de interrogação (retornando assim um `Ok(v)`), utilizando essa mesma instância retornada podemos já fazer uma chamada para o método `read_to_string(v)`. Onde também fazemos o controle usando o sinal de interrogação para retornar o erro em caso de falha. Se tudo for bem, basta que no final da função retornemos `Ok(username)`.
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut username = String::new();
+
+    File::open("hello.txt")?.read_to_string(&mut username)?;
+
+    Ok(username)
+}
 ```
 
 <br>
