@@ -1747,4 +1747,6 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 
 [Result and errors](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
 
+[Aprenda Rust - YouTube Playlist](https://www.youtube.com/playlist?list=PLjSf4DcGBdiGCNOrCoFgtj0KrUq1MRUME)
+
 

@@ -40,7 +40,7 @@ fn main() {
         }
     }
 
-    println!("\n+++++++++++++++++++++++++++\n");
+    println!("\n{}\n", "+".repeat(33));
 
     // Usando .is_found()
     for index in 0..data_vectors.len() {
