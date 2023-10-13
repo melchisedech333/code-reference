@@ -1725,6 +1725,14 @@ Onde <b>../library</b> é o diretório do <i>crate</i> (library).
 
 <br>
 
+## Result<T, E>
+
+<br>
+
+Funciona basicamente como um Option<T>, mas lida com tratamento de erros voltados mais para ação, e não para o dado/informação em si.
+
+<br>
+
 ## Links e Referências
 
 <br>
@@ -1736,5 +1744,7 @@ https://stackoverflow.com/questions/56504289/why-do-we-use-the-option-enum
 http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 
 [Option and Result](https://dhghomon.github.io/easy_rust/Chapter_31.html)
+
+[Result and errors](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
 
 
