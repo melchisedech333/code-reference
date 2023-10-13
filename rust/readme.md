@@ -21,9 +21,9 @@
 - Struct
 - Enum
 - Option\<T\>
-- Result\<T\, E\>
 - Match
 - Biblioteca
+- Result\<T\, E\>
 - Links e Referências
 
 <br>
