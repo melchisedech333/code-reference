@@ -21,6 +21,7 @@
 - Struct
 - Enum
 - Option\<T\>
+- Result\<T\, E\>
 - Match
 - Biblioteca
 - Links e Referências
@@ -1748,5 +1749,7 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 [Result and errors](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
 
 [Aprenda Rust - YouTube Playlist](https://www.youtube.com/playlist?list=PLjSf4DcGBdiGCNOrCoFgtj0KrUq1MRUME)
+
+[Programando do 0 ao avançado na linguagem de programação Rust](https://www.youtube.com/playlist?list=PLWmXJQDlXOHX6UdAmXv6euoqDPUtMLpJf)
 
 
