@@ -1750,6 +1750,4 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 
 [Aprenda Rust - YouTube Playlist](https://www.youtube.com/playlist?list=PLjSf4DcGBdiGCNOrCoFgtj0KrUq1MRUME)
 
-[Programando do 0 ao avançado na linguagem de programação Rust](https://www.youtube.com/playlist?list=PLWmXJQDlXOHX6UdAmXv6euoqDPUtMLpJf)
-
 
