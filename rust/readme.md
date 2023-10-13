@@ -25,6 +25,7 @@
 - Biblioteca
 - Result\<T\, E\>
 - Propagação de erro
+- Generic Data Types
 - Links e Referências
 
 <br>
@@ -1747,6 +1748,8 @@ No entanto, caso a chamada a `File::open` falhar, será retornado para a própri
 
 Note que no final da função é retornado `Ok(username)`, pois como tudo foi bem, e como o valor de retorno especificado na assinatura da função é `Result<String, io::Error>`, devemos portanto retornar um tipo `Ok(v)`.
 
+**Obs:** também é possível utilizar este controle com o `Option<T>`.
+
 ```rust
 use std::fs::File;
 use std::io::{self, Read};
@@ -1794,6 +1797,112 @@ fn read_username_from_file() -> Result<String, io::Error> {
     File::open("hello.txt")?.read_to_string(&mut username)?;
 
     Ok(username)
+}
+```
+
+Também podemos utilizar o controle na função `main`.
+
+```rust
+use std::error::Error;
+use std::fs::File;
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let greeting_file = File::open("hello.txt")?;
+
+    Ok(())
+}
+```
+
+<br>
+
+## Generic Data Types
+
+<br>
+
+Com os tipos genéricos evitamos a duplicidade de códigos. Segue alguns exemplos.
+
+```rust
+fn largest<T>(list: &[T]) -> &T { ...
+```
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
+}
+```
+
+```rust
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+fn main() {
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
+}
+```
+
+```rust
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+fn main() {
+    let p = Point { x: 5, y: 10 };
+
+    println!("p.x = {}", p.x());
+}
+```
+
+```rust
+struct Point<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+impl<X1, Y1> Point<X1, Y1> {
+    fn mixup<X2, Y2>(self, other: Point<X2, Y2>) -> Point<X1, Y2> {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10.4 };
+    let p2 = Point { x: "Hello", y: 'c' };
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
 }
 ```
 
