@@ -2163,6 +2163,7 @@ Exemplos:
 - `examples/future4` - Exemplo utilizando a macro `select!`.
 - `examples/future5` - Exemplo mais **claro** de como funcionam as async functions.
 - `examples/future6` - Executando tasks **simultaneas**.
+- `examples/future7` - Utilizando **tokio**.
 
 <br>
 
