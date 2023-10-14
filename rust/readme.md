@@ -2158,8 +2158,11 @@ Exemplos:
 Exemplos:
 
 - `examples/future1` - Simples demonstração do conceito.
-- `examples/future2` - Executando várias async functions simultaneamente.
+- `examples/future2` - Executando várias async functions.
 - `examples/future3` - Executa várias async functions, mas com controle de erro usando `Result<T, E>`, e fazendo uso de `TryFutureExt`, e `try_join`.
+- `examples/future4` - Exemplo utilizando a macro `select!`.
+- `examples/future5` - Exemplo mais **claro** de como funcionam as async functions.
+- `examples/future6` - Executando tasks **simultaneas**.
 
 <br>
 
