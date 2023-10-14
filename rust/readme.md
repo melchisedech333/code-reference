@@ -2139,6 +2139,18 @@ Mais exemplos:
 
 <br>
 
+## Tests
+
+<br>
+
+Exemplos:
+
+- `examples/test1` - Teste simples.
+- `examples/test2` - Exemplo para testar toda uma implementação de uma Trait.
+- `examples/test3` - Mesmo que acima, mas separando testes em arquivo.
+
+<br>
+
 ## Links e Referências
 
 <br>
