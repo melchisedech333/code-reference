@@ -1,4 +1,3 @@
-
 // Trait.
 pub trait Summary {
     fn summarize(&self) -> String {
@@ -11,7 +10,7 @@ pub trait Summary {
 
 // Tweet implementation.
 pub struct Tweet {
-    pub username: String
+    pub username: String,
 }
 
 impl Summary for Tweet {
@@ -23,5 +22,3 @@ impl Summary for Tweet {
         a + b
     }
 }
-
-
