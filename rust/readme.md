@@ -2133,6 +2133,10 @@ fn main() {
 }
 ```
 
+Mais exemplos:
+
+- `examples/trait3` - Sobrescreve uma implementação padrão.
+
 <br>
 
 ## Links e Referências
