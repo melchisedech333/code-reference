@@ -28,6 +28,7 @@
 - Generic Data Types
 - Traits
 - Tests
+- Async/Await
 - Links e Referências
 
 <br>
@@ -2152,6 +2153,16 @@ Exemplos:
 
 <br>
 
+## Async/Await
+
+Exemplos:
+
+- `examples/future1` - Simples demonstração do conceito.
+- `examples/future2` - Executando várias async functions simultaneamente.
+- `examples/future3` - Executa várias async functions, mas com controle de erro usando `Result<T, E>`, e fazendo uso de `TryFutureExt`, e `try_join`.
+
+<br>
+
 ## Links e Referências
 
 <br>
@@ -2167,5 +2178,7 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 [Result and errors](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
 
 [Aprenda Rust - YouTube Playlist](https://www.youtube.com/playlist?list=PLjSf4DcGBdiGCNOrCoFgtj0KrUq1MRUME)
+
+[Async Programming Rust](https://rust-lang.github.io/async-book/06_multiple_futures/01_chapter.html)
 
 
