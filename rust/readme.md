@@ -27,6 +27,7 @@
 - Propagação de erro
 - Generic Data Types
 - Traits
+- Tests
 - Links e Referências
 
 <br>
