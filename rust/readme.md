@@ -29,6 +29,7 @@
 - Traits
 - Tests
 - Async/Await
+- Documentação
 - Links e Referências
 
 <br>
@@ -2168,6 +2169,28 @@ Exemplos:
 
 <br>
 
+## Documentação
+
+<br>
+
+O melhor ponto para se ter em mente é que é permitido usar Markdown nos comentários Rust.
+
+Exemplos:
+
+- `examples/doc1` - Exemplo de como documentar o código rust.
+
+Lembrando que para gerar a documentação basta executar o comando abaixo.
+
+```bash
+cargo doc --no-deps --open
+```
+
+Os arquivos ficam salvos em: `./target/doc/doc1/index.html`
+
+Você pode ver uma tabela de como usar o MarkDown suportado pelo Rust aqui: https://commonmark.org/help/
+
+<br>
+
 ## Links e Referências
 
 <br>
@@ -2187,5 +2210,7 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 [Async Programming Rust](https://rust-lang.github.io/async-book/06_multiple_futures/01_chapter.html)
 
 [Tokio](https://tokio.rs/)
+
+[Rustdoc Book](https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html)
 
 
