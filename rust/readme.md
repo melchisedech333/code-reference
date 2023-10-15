@@ -30,6 +30,7 @@
 - Tests
 - Async/Await
 - Documentação
+- Unwrap_or
 - Links e Referências
 
 <br>
@@ -2188,6 +2189,22 @@ cargo doc --no-deps --open
 Os arquivos ficam salvos em: `./target/doc/doc1/index.html`
 
 Você pode ver uma tabela de como usar o MarkDown suportado pelo Rust aqui: https://commonmark.org/help/
+
+<br>
+
+# Unwrap_or
+
+Se o valor for `None` utiliza o `0` no lugar do mesmo.
+
+```rust
+fn main() {
+    let x: Option<i32> = Some(5);
+    let y: Option<i32> = None;
+
+    let sum = x.unwrap_or(0) + y.unwrap_or(0);
+    println!("Sum is: {}", sum);
+}
+```
 
 <br>
 
