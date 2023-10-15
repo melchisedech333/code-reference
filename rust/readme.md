@@ -2164,6 +2164,7 @@ Exemplos:
 - `examples/future5` - Exemplo mais **claro** de como funcionam as async functions.
 - `examples/future6` - Executando tasks **simultaneas**.
 - `examples/future7` - Utilizando **tokio**.
+- `examples/future8` - Taferas assíncronas, interação entre ações síncronas e assíncronas, e manipulação de valores de retorno.
 
 <br>
 
@@ -2184,5 +2185,7 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 [Aprenda Rust - YouTube Playlist](https://www.youtube.com/playlist?list=PLjSf4DcGBdiGCNOrCoFgtj0KrUq1MRUME)
 
 [Async Programming Rust](https://rust-lang.github.io/async-book/06_multiple_futures/01_chapter.html)
+
+[Tokio](https://tokio.rs/)
 
 
