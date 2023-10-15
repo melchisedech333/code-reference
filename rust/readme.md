@@ -31,6 +31,7 @@
 - Async/Await
 - Documentação
 - Unwrap_or
+- Threads
 - Links e Referências
 
 <br>
@@ -2208,6 +2209,17 @@ fn main() {
 
 <br>
 
+## Threads
+
+<br>
+
+Exemplos:
+
+- `examples/thread1` - Exemplo usando Mutex.
+- `examples/thread2` - Utilizando channel para transmissão de informações com as threads.
+
+<br>
+
 ## Links e Referências
 
 <br>
@@ -2229,5 +2241,7 @@ http://saidvandeklundert.net/learn/2021-09-01-rust-option-and-result/
 [Tokio](https://tokio.rs/)
 
 [Rustdoc Book](https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html)
+
+[Pattern Syntax](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html)
 
 
